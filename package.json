@@ -1,0 +1,66 @@
+{
+  "name": "@local/study-companion",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "伴学：把一次对话变成一条学习回路（学习阶梯 / 20 小时计划 / 考到崩溃 / 一页速查表 / 资源策展 / 费曼循环）",
+  "author": "zgdllt",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zgdllt/study-companion.git"
+  },
+  "homepage": "https://github.com/zgdllt/study-companion#readme",
+  "bugs": {
+    "url": "https://github.com/zgdllt/study-companion/issues"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "adapter/safari.js",
+    "cordis.patch.yml",
+    "content/method.json",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "RELEASE.md",
+    "LICENSE",
+    "docs/CONTRACT.md",
+    "tests/README.md",
+    "tests/*.mjs"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-layout",
+        "@deepseek-ai/dsh-client-ui-sidebar"
+      ]
+    }
+  },
+  "license": "MIT",
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "dsh-plugin",
+    "plugin",
+    "study",
+    "education",
+    "flashcards",
+    "feynman",
+    "spaced-repetition",
+    "lecture-notes"
+  ],
+  "scripts": {
+    "check": "node --check index.js && node --check client.js && node --check adapter/safari.js",
+    "test": "node tests/run-all.mjs"
+  }
+}

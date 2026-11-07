@@ -1,0 +1,21 @@
+# Local dependencies and generated packages
+node_modules/
+/*.tgz
+*.log
+coverage/
+
+# Local configuration and learning data
+.env
+.env.*
+!.env.example
+/.dsh/
+/storages/
+
+# Private production materials and screen recordings
+/promo/
+/Screen Recording*.mov
+
+# OS and interpreter caches
+.DS_Store
+__pycache__/
+*.py[cod]
