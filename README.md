@@ -3,6 +3,8 @@
 [![CI](https://github.com/zgdllt/study-companion/actions/workflows/ci.yml/badge.svg)](https://github.com/zgdllt/study-companion/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
+项目主页：<https://zgdllt.github.io/study-companion/>
+
 **一个 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)（DSH）插件，把 AI 对话变成可持续的学习回路：规划 → 练习 → 测试 → 反馈 → 复习。**
 
 在对话中让 agent 制订学习阶梯、出题与评分，在侧栏面板中查看进度、作答和回顾漏洞；还可以跟随网页课程记录笔记，把练习中的难点追溯到课件页与原课时间。

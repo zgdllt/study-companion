@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>伴学 · Study Companion — DeepSeek Harness 学习插件</title>
+<meta name="description" content="伴学是 DeepSeek Harness 的开源插件：五级学习阶梯、20 小时计划、一次一题的考试、费曼循环、一页速查表与 +1/+3/+7 天复测，把随手问 AI 变成一条学习回路。">
+<meta property="og:title" content="伴学 · Study Companion">
+<meta property="og:description" content="别再跟 AI 聊一百遍还是全忘光。DeepSeek Harness 开源学习插件：规划 → 练习 → 测试 → 反馈 → 复习。">
+<meta property="og:image" content="https://zgdllt.github.io/study-companion/og.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.7.0/style.css">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="top">
+  <a class="brand" href="#top"><img src="favicon.svg" alt="" width="36" height="36"><span>伴学 <small>Study Companion</small></span></a>
+  <nav aria-label="页面导航">
+    <a href="#features">功能</a><a href="#flow">用法</a><a href="#methods">方法卡</a><a href="#install">安装</a>
+    <a class="gh" href="https://github.com/zgdllt/study-companion">GitHub ↗</a>
+  </nav>
+</header>
+
+<main id="main">
+<!-- ============ hero ============ -->
+<section class="hero" id="top">
+  <div class="hero-text">
+    <p class="kicker">DeepSeek Harness 插件 · v1.0.0 · MIT 开源</p>
+    <h1>别再跟 AI 聊一百遍<br>还是<span class="strike">全忘光<svg viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4 26 C80 10 170 34 296 12"/></svg></span><em class="fix">学会了</em></h1>
+    <p class="lede">伴学把一次对话变成一条可续、可测、可复习的学习回路：<b>规划 → 练习 → 测试 → 反馈 → 复习</b>。agent 负责讲解、出题、评分；侧栏面板负责看进度、交答案。从小学口算到大学运筹学，一套流程。</p>
+    <div class="install-box">
+      <span class="label">在 DSH「插件 → 添加插件」中粘贴</span>
+      <div class="copy-row"><code id="git-url">git+https://github.com/zgdllt/study-companion.git#v1.0.0</code><button class="copy" data-copy="#git-url">复制</button></div>
+    </div>
+    <div class="cta">
+      <a class="btn primary" href="#install">安装说明</a>
+      <a class="btn" href="https://github.com/zgdllt/study-companion/releases/latest">下载 v1.0.0</a>
+      <a class="btn ghost" href="https://github.com/zgdllt/study-companion">查看源码 ↗</a>
+    </div>
+  </div>
+
+  <figure class="paper" aria-label="示意：考场里的一道题被批改">
+    <div class="paper-head"><span>考场 · 线性代数</span><span>Q3 / 难度 ★★★</span></div>
+    <p class="q">为什么实对称矩阵一定可以对角化？</p>
+    <p class="ans">因为它的特征值都是实数，<span class="ul">所以一定能对角化</span>。</p>
+    <svg class="mark-ul" viewBox="0 0 200 14" aria-hidden="true"><path d="M2 8 C60 2 120 13 198 5"/></svg>
+    <p class="note">漏洞：特征值是实数 ≠ 有完整的正交特征向量组。<br>→ 只重讲「谱定理」这一块</p>
+    <div class="score" aria-label="得分 6 分（满分 10 分）">6<small>/10</small></div>
+    <div class="paper-foot"><span>独立完成</span><span>+1 天复测已安排</span></div>
+    <figcaption>示意图：伴学的「考场」面板与对话评分（简化）</figcaption>
+  </figure>
+</section>
+
+<!-- ============ four things ============ -->
+<section class="loop" aria-labelledby="loop-h">
+  <div class="sec-head"><span class="num">一、</span><h2 id="loop-h">真正的学习需要四样东西</h2><span class="pts">普通 AI 对话通常全部跳过</span></div>
+  <div class="loop-body">
+    <ol class="ring" aria-label="学习回路">
+      <li style="--i:0"><b>路径</b><span>知道按什么顺序学什么</span></li>
+      <li style="--i:1"><b>测试</b><span>发现自己其实不懂什么</span></li>
+      <li style="--i:2"><b>压缩</b><span>需要时 5 分钟能复习完</span></li>
+      <li style="--i:3"><b>反馈</b><span>漏洞立刻被发现并补上</span></li>
+    </ol>
+    <p class="loop-copy">伴学把这四样东西做成插件：路径写进<b>学习阶梯与计划</b>，测试变成<b>一次一题的考场</b>，压缩落在<b>费曼复述与一页速查表</b>，反馈记在<b>漏洞日志与隔天复测</b>。每个学科一份档案，换天、换对话都能接着学。</p>
+  </div>
+</section>
+
+<!-- ============ features ============ -->
+<section id="features" aria-labelledby="feat-h">
+  <div class="sec-head"><span class="num">二、</span><h2 id="feat-h">能做什么</h2><span class="pts">共 6 题</span></div>
+  <div class="grid6">
+    <article class="q-card"><h3><i>1</i>学习路径</h3><p>五级学习阶梯（每级写清应理解什么、精通表现、里程碑和自测），20 小时计划拆成 2 小时一个单元，外加最多 5 个精选资源。</p></article>
+    <article class="q-card"><h3><i>2</i>一次一题的考试</h3><p>对话出题 → 面板作答 → 回对话评分。难度沿阶梯递增，记录具体漏洞和判分依据，只重讲答错的部分。</p></article>
+    <article class="q-card"><h3><i>3</i>掌握度与复习</h3><p>计划完成、独立通过、提示后完成、隔天复测分开记录；自动排 +1 / +3 / +7 天复测，到期在面板提醒。</p></article>
+    <article class="q-card"><h3><i>4</i>知识压缩</h3><p>费曼循环：讲给 agent 听，讲不清的地方被标出来再讲一遍；学完压成一页速查表，考前 5 分钟扫完。</p></article>
+    <article class="q-card"><h3><i>5</i>同堂伴学</h3><p>跟着网课记笔记：课中标记，「原课要点」与「agent 补充」分栏保存，互动补讲，从错题回溯到课件页与原讲解时间。</p></article>
+    <article class="q-card"><h3><i>6</i>Safari 适配器<em>可选</em></h3><p>macOS 上读取课程播放状态，暂停 / 继续 / 定位，同步课件锚点。目前只在雨课堂回放上实测过。</p></article>
+  </div>
+</section>
+
+<!-- ============ flow ============ -->
+<section id="flow" aria-labelledby="flow-h">
+  <div class="sec-head"><span class="num">三、</span><h2 id="flow-h">一轮怎么用</h2><span class="pts">对话负责教，面板负责交</span></div>
+  <div class="lanes">
+    <div class="lane-h"><span>💬 DSH 对话 · agent 写档案</span><span>📋 侧栏「伴学」面板 · 你来看、来答</span></div>
+    <ol class="steps">
+      <li class="r"><b>新建学科</b>在「概览」填主题、目标、截止时间和可用小时数。</li>
+      <li class="l"><b>建阶梯和计划</b>回到对话，让 agent 读取学科、绑定当前对话，写入阶梯与计划，并先带你学第一个单元。
+        <div class="copy-row small"><code id="first-prompt">请用伴学工具读取我刚创建的学科，先通过 study_write 的 bind_session 操作将它绑定到当前对话，再建立学习阶梯和学习计划并写入档案。先带我完成第一个单元，不要一次讲完整套课程。</code><button class="copy" data-copy="#first-prompt">复制</button></div></li>
+      <li class="l"><b>开始考试</b>学完一个单元就说「开始考试」，agent 一次只出一道题。</li>
+      <li class="r"><b>在考场作答</b>点「提交并继续考试」。面板只保存答案，<u>不自己打分</u>。</li>
+      <li class="l"><b>评分、抓漏洞</b>agent 读到答案，给分并指出确切漏洞，讲解后出下一题。</li>
+      <li class="l"><b>压缩与复测</b>学完存一页速查表，安排 +1 / +3 / +7 天复测。</li>
+      <li class="r"><b>到期提醒</b>「概览」显示到期的复测，输入框下方的挂件显示当前进度。</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ methods ============ -->
+<section id="methods" aria-labelledby="m-h">
+  <div class="sec-head"><span class="num">四、</span><h2 id="m-h">六张方法卡</h2><span class="pts">面板「方法」页一键复制提示词</span></div>
+  <div class="cards">
+    <article class="idx"><h3>学习阶梯</h3><p class="tag">先看清整张地图，再决定今天学哪一级</p><p class="when">什么时候用：刚决定学一个主题，或说不清自己现在算哪一级</p></article>
+    <article class="idx"><h3>20 小时计划</h3><p class="tag">先学能带来 80% 效果的 20%，而不是学完所有内容</p><p class="when">什么时候用：时间有限、想尽快上手，或计划总是排得太满</p></article>
+    <article class="idx"><h3>考到崩溃</h3><p class="tag">一次一题、每题打分，逼出「不知道」的精确边界</p><p class="when">什么时候用：学完一个单元，或「感觉懂了」但讲不出所以然</p></article>
+    <article class="idx"><h3>一页纸小抄</h3><p class="tag">把学到的压成 5 分钟能扫完的复习入口</p><p class="when">什么时候用：学完一个单元，或考试、面试、开会前 5 分钟</p></article>
+    <article class="idx"><h3>从噪音里找信号</h3><p class="tag">只留 5 个真正值得投入的资源</p><p class="when">什么时候用：开始学之前，或收藏夹满了却迟迟没开始</p></article>
+    <article class="idx"><h3>费曼循环</h3><p class="tag">讲不清，就是还没真懂</p><p class="when">什么时候用：学完还觉得不稳，或某个概念总是记不住</p></article>
+  </div>
+</section>
+
+<!-- ============ video (shown only when BILIBILI_BVID is set in site.js) ============ -->
+<section id="video" hidden aria-labelledby="v-h">
+  <div class="sec-head"><span class="num">★</span><h2 id="v-h">78 秒看懂伴学</h2><span class="pts">B 站宣传片</span></div>
+  <div class="player"></div>
+</section>
+
+<!-- ============ install ============ -->
+<section id="install" aria-labelledby="i-h">
+  <div class="sec-head"><span class="num">五、</span><h2 id="i-h">安装</h2><span class="pts">三选一</span></div>
+  <div class="install">
+    <div class="pre">
+      <h3>先准备好 DeepSeek Harness</h3>
+      <p>有桌面版直接打开；命令行用户按<a href="https://github.com/deepseek-ai/deepseek-harness#run">官方说明</a>启动，默认界面是 <code>http://127.0.0.1:3080</code>：</p>
+      <div class="copy-row"><code id="dsh-cmd">npx @deepseek-ai/dsh web</code><button class="copy" data-copy="#dsh-cmd">复制</button></div>
+      <p>先在「设置 → 模型」配置可用模型，再选择或添加工作区。伴学在 <b>DSH 0.2.1-rc.5</b> 上开发和验证；Safari 课程控制需要 macOS，普通学习流程不需要。</p>
+    </div>
+    <div class="tabs" role="tablist" aria-label="安装方式">
+      <button role="tab" aria-selected="true" aria-controls="t-git" id="b-git">Git 地址（推荐）</button>
+      <button role="tab" aria-selected="false" aria-controls="t-tgz" id="b-tgz" tabindex="-1">Release 安装包</button>
+      <button role="tab" aria-selected="false" aria-controls="t-src" id="b-src" tabindex="-1">从源码</button>
+    </div>
+    <div class="tab" role="tabpanel" id="t-git" aria-labelledby="b-git">
+      <ol>
+        <li>DSH 侧栏打开「插件」，点「添加插件」。</li>
+        <li>粘贴下面的地址（固定在 v1.0.0）：<div class="copy-row"><code id="git-url2">git+https://github.com/zgdllt/study-companion.git#v1.0.0</code><button class="copy" data-copy="#git-url2">复制</button></div></li>
+        <li>点「安装」，完成后点「立即启用」；提示需要重启就重启 DSH。</li>
+        <li>刷新界面，侧栏出现「伴学」。插件列表里的包名是 <code>@local/study-companion</code>。</li>
+      </ol>
+      <p class="hint">运行 DSH 的那台机器要能访问 GitHub。不用单独构建，也不用把源码复制进 DSH 目录。</p>
+    </div>
+    <div class="tab" role="tabpanel" id="t-tgz" aria-labelledby="b-tgz" hidden>
+      <ol>
+        <li>从 <a href="https://github.com/zgdllt/study-companion/releases/latest">Releases</a> 下载 <code>local-study-companion-1.0.0.tgz</code>，不要解压。</li>
+        <li>在同一个「添加插件」输入框填这个文件的<b>绝对路径</b>，例如 <code>/absolute/path/to/local-study-companion-1.0.0.tgz</code>。</li>
+        <li>安装并启用。</li>
+      </ol>
+      <p class="hint">路径必须在<b>运行 DSH 的那台机器</b>上。远程使用 DSH 时，浏览器所在电脑的下载路径不能直接用。</p>
+    </div>
+    <div class="tab" role="tabpanel" id="t-src" aria-labelledby="b-src" hidden>
+      <div class="copy-row"><code id="src-cmd">git clone https://github.com/zgdllt/study-companion.git &amp;&amp; cd study-companion &amp;&amp; pwd</code><button class="copy" data-copy="#src-cmd">复制</button></div>
+      <p>把 <code>pwd</code> 输出的绝对目录填进「添加插件」。目录安装会链接到源码：改了客户端刷新页面即可，改了 Host 按提示重载插件或重启宿主。</p>
+      <p class="hint">开发检查：<code>npm run check</code>（语法）· <code>npm test</code>（Host 46 项 + 课次 34 项回归）· <code>npm pack</code>。</p>
+    </div>
+    <div class="check">
+      <h3>装好了吗？对一下答案</h3>
+      <ul>
+        <li>「插件」页里伴学已启用，Host 行没有加载错误</li>
+        <li>侧栏能打开「伴学」，看到 概览 / 阶梯 / 考场 / 课堂 / 方法</li>
+        <li>新建学科后，在对话里让 agent 读取档案，能调用 <code>study_read</code></li>
+      </ul>
+      <p class="hint">只有插件条目、没有面板：确认组合包已启用后刷新；有 <code>restart-required</code> 提示就重启 DSH。其他问题请带上 DSH 版本和安装日志<a href="https://github.com/zgdllt/study-companion/issues">提交 Issue</a>。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ data + limits ============ -->
+<section class="two" aria-label="数据与边界">
+  <div>
+    <div class="sec-head"><span class="num">六、</span><h2>数据在你自己的机器上</h2></div>
+<pre class="tree">$DSH_HOME/storages/study-companion/
+├── active.json          <i># 当前学科</i>
+├── subjects/&lt;id&gt;.json   <i># 计划、考试、漏洞、掌握度与复测</i>
+├── courses/&lt;id&gt;.json    <i># 课程身份与网址</i>
+├── lessons/&lt;id&gt;.json    <i># 播放状态、锚点、笔记与回溯</i>
+└── prefs.json           <i># 表达偏好</i></pre>
+    <ul class="plain">
+      <li>一个学科一份档案，能单独备份和迁移；卸载插件不会删档案。</li>
+      <li>插件本身没有云端服务或遥测。对话内容按你在 DSH 里配置的模型服务处理。</li>
+      <li><code>DSH_HOME</code> 未设置时是 <code>~/.dsh</code>；可在 <code>cordis.patch.yml</code> 里用 <code>config.dataDir</code> 换目录。</li>
+    </ul>
+  </div>
+  <div class="limits">
+    <div class="sec-head"><span class="num">七、</span><h2>老实说</h2></div>
+    <ul>
+      <li>评分是模型对这一次回答的判断，<b>不等于真实能力验收</b>，也替代不了真实项目和反馈。</li>
+      <li>方法卡引用的研究只支持机制，<b>不承诺「快 10 倍」</b>。「包教包会」是宣传片里的梗：不会就再考，直到会。</li>
+      <li>自动前测、首单元完整验收、教材边界核验、真实浏览器全链路验收还没完成，以<a href="https://github.com/zgdllt/study-companion/blob/main/docs/CONTRACT.md">接口契约</a>里的标记为准。</li>
+      <li>没在其他操作系统和其他 DSH 版本上做过端到端验收。</li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<footer>
+  <p><img src="favicon.svg" alt="" width="24" height="24"> 伴学 · Study Companion v1.0.0 · <a href="https://github.com/zgdllt/study-companion/blob/main/LICENSE">MIT</a> · <a href="https://github.com/zgdllt/study-companion/blob/main/RELEASE.md">发布说明</a> · <a href="https://github.com/zgdllt/study-companion/issues">反馈</a></p>
+  <p>独立开发的社区插件，非 DeepSeek 官方产品。学习方法参考 Rahul 的 <a href="https://x.com/sairahul1/article/2068250224532050089">How To Learn Anything 10x Faster Using Claude</a> 及<a href="https://zhuanlan.zhihu.com/p/2070979462934565425">中文解读</a>。标题字体 <a href="https://github.com/atelier-anchor/smiley-sans">得意黑</a>（OFL），正文字体 <a href="https://github.com/lxgw/LxgwWenKai-Screen">霞鹜文楷屏幕阅读版</a>（OFL）。</p>
+</footer>
+<script src="site.js"></script>
+</body>
+</html>
