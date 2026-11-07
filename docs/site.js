@@ -2,7 +2,7 @@
 'use strict';
 
 // Fill in after the Bilibili upload (e.g. 'BV1xx411c7mD'); the video section stays hidden while empty.
-const BILIBILI_BVID = '';
+const BILIBILI_BVID = 'BV1nN4J6REcy';
 
 for (const btn of document.querySelectorAll('.copy')) {
   btn.addEventListener('click', async () => {

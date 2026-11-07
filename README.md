@@ -3,7 +3,7 @@
 [![CI](https://github.com/zgdllt/study-companion/actions/workflows/ci.yml/badge.svg)](https://github.com/zgdllt/study-companion/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-项目主页：<https://zgdllt.github.io/study-companion/>
+项目主页：<https://zgdllt.github.io/study-companion/> · B 站宣传片：<https://www.bilibili.com/video/BV1nN4J6REcy>
 
 **一个 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)（DSH）插件，把 AI 对话变成可持续的学习回路：规划 → 练习 → 测试 → 反馈 → 复习。**
 
