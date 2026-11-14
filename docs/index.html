@@ -20,7 +20,7 @@
 <header class="top">
   <a class="brand" href="#top"><img src="favicon.svg" alt="" width="36" height="36"><span>伴学 <small>Study Companion</small></span></a>
   <nav aria-label="页面导航">
-    <a href="#video">宣传片</a><a href="#features">功能</a><a href="#flow">用法</a><a href="#methods">方法卡</a><a href="#install">安装</a>
+    <a href="#video">宣传片</a><a href="#features">功能</a><a href="#flow">用法</a><a href="#methods">方法卡</a><a href="#install">安装</a><a href="#next">附加题</a>
     <a class="gh" href="https://github.com/zgdllt/study-companion">GitHub ↗</a>
   </nav>
 </header>
@@ -193,6 +193,26 @@
       <li>没在其他操作系统和其他 DSH 版本上做过端到端验收。</li>
     </ul>
   </div>
+</section>
+
+<!-- ============ bonus: next version (unreleased) ============ -->
+<section id="next" class="bonus" aria-labelledby="next-h">
+  <span class="draft-stamp" aria-hidden="true">未发布</span>
+  <div class="sec-head"><span class="num">附加题</span><h2 id="next-h">下一版在做什么</h2><span class="pts">开发中 · 不计入 v1.0.0</span></div>
+  <p class="bonus-lede">上面是你现在能装到的 v1.0.0。下面这些已经写完，正在作者自己的 DSH 里试用，<b>还没有发布</b>：先用一周真实学习验证，再决定是否进入下一版。更远的目标不是追上 AI 的全部知识，而是让你获得<b>足以理解、质疑和选择 AI 方案的判断力</b>。</p>
+  <div class="grid4">
+    <article class="q-card pending"><h3><i>1</i>有证据才算掌握</h3><p>在对话里打字或拍照作答，也会被记下来；没有评过分的作答，不能记为「掌握」。作答里说「不知道」的部分单独记为未通过，总分再高，这道题也不算过。</p></article>
+    <article class="q-card pending"><h3><i>2</i>练习和证据分开</h3><p>默认出的是练习题：只给反馈，不显示分数，不算掌握。用来证明你会了的「证据题」少而准，只在学完一块、隔天复测或真实任务里独立判断时出。</p></article>
+    <article class="q-card pending"><h3><i>3</i>强度由你控制</h3><p>轻 / 中 / 重三档，新学科从轻档开始，说一句「强度大一点」就能换。累了，或连续 3 道练习没过，agent 会先停下来问你：换成例题、做个小结，还是休息。</p></article>
+    <article class="q-card pending"><h3><i>4</i>先学，再考</h3><p>刚入门时先看完整例题、用自己的话解释每一步，而不是一上来就连续提问。领导力这类没有标准答案的科目，改用情境判断和复盘你的真实经历。</p></article>
+  </div>
+  <div class="verify">
+    <strong>一周后怎么判卷</strong>
+    <span>题目闭合率 ≥ 90%</span>
+    <span>没有评分支撑的「掌握」为 0</span>
+    <span>抽 20 条作答，与对话原文逐条核对</span>
+  </div>
+  <p class="bonus-note">为什么先做这些：真实使用中，作答几乎都发生在对话里，而 v1.0.0 只认面板作答，评分因此没有写回档案。下一版先解决「记得下、记得对」。其中「先学再考」和「按科目换形式」目前只靠给 agent 的说明约束，插件还没有强制。</p>
 </section>
 </main>
 
